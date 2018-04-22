@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<h1>v-bind</h1>
+<hr>
+<div id="app">
+	<img :src="src" alt=""><br>
+	<a v-bind:href="href" target="_blank">我的博客</a>
+	<p :class="isOk? 'classA':'classB'">三目运算绑定class</p>
+	<p :class="{classA: !isOk}">绑定class中的判断</p>
+	<p :style="{color:'red',fontSize:font}">绑定style</p>
+</div>
+<style>
+	.classA{
+		color: red;
+	}
+	.classB{
+		color: blue;
+	}
+</style>
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            src: "//f10.baidu.com/it/u=2829329166,3561355256&fm=173&app=25&f=JPEG?w=640&h=351&s=E710738D4AF83E8E758915860300A0E1&access=215967316",
+	        href: 'http://xingzhao.me',
+	        isOk: false,
+	        font: '28px'
+        },
+    });
+</script>
+
+</body>
+</html>

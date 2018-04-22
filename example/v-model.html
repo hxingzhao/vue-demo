@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<h1>v-model</h1>
+<hr>
+<div id="app">
+	<h3>文本框绑定</h3>
+	<p>{{inputValue}}</p>
+	<label for="v-model">v-model</label>
+	<input type="text" id="v-model" v-model="inputValue"> <br>
+	
+	<label for="lazy">v-model.lazy</label>
+	<input type="text" id="lazy" v-model.lazy="inputValue"> <br> <br>
+	
+	<label for="number">v-model.number</label>
+	<input type="text" id="number" v-model.number="inputValue"> <br>
+	
+	<label for="trim">v-model.traim</label>
+	<input type="text" id="trim" v-model.trim="inputValue">
+	
+	<h3>文本域绑定</h3>
+	<textarea name="ss" id="" cols="30" rows="10" v-model="inputValue"></textarea>
+	<h3>多选框绑定一个值</h3>
+	<input type="checkbox" value="x" v-model="isSelector">
+	<p>{{isSelector}}</p>
+	<h3>多选框绑定数组</h3>
+	panda<input type="checkbox" id="panda" value="panda" v-model="selectArr">
+	dog<input type="checkbox" id="dog" value="dog" v-model="selectArr">
+	pig<input type="checkbox" id="pig" value="pig" v-model="selectArr">
+	<p>{{selectArr}}</p>
+	<h3>单选框绑定</h3>
+	dog<input type="radio" value="dog" v-model="radioValue">
+	pig<input type="radio" value="pig" v-model="radioValue">
+	panda<input type="radio" value="panda" v-model="radioValue">
+	<p>{{radioValue}}</p>
+</div>
+
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            inputValue: 'helloWorld',
+            isSelector: false,
+	        selectArr: [],
+	        radioValue: 'dog'
+        },
+        methods: {
+            jiafen: function () {
+                this.fenshu++;
+            },
+            jianfen: function () {
+                this.fenshu--;
+            },
+            enter: function () {
+                this.fenshu = this.fenshu + parseInt(this.value);
+            }
+        }
+    })
+</script>
+</body>
+</html>

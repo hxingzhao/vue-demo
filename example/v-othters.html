@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<h1>v-bind</h1>
+<hr>
+<div id="app">
+	<p v-pre>v-pre: {{message}}</p>
+	<p v-cloak>v-cloak 渲染完以后才显示</p>
+	<p v-once>v-once: {{message}}</p>
+	<input type="text" v-model="message">
+	<p>{{message}}</p>
+</div>
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+          message: 'helloWorld'
+        },
+    });
+</script>
+
+</body>
+</html>

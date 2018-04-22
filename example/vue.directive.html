@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<h1>v-bind</h1>
+<hr>
+<div id="app">
+	<p>输入true可以替换为黄色，输入其他值解除绑定</p>
+	<input type="text" v-focus="message=='true' ? true : false" v-model.lazy="message">
+
+</div>
+<script type="text/javascript">
+    /*Vue.directive('focus', function (el, bind) {
+        console.log(el);
+        console.log(bind);
+    });*/
+    Vue.directive('focus',{
+        bind: function (el,bind) {
+            console.log(el,bind);
+            console.log('bind');
+            el.style.color = 'red';
+        },
+	    inserted: function () {
+		    console.log('inserted');
+        },
+	    update: function(el,bind){
+            if(bind.value) {
+                el.style.color = 'yellow'
+            }else {
+                app.$destroy();
+            }
+            console.log('update');
+	    },
+	    componentUpdated: function () {
+		    console.log('componentUpdated');
+        },
+	    unbind: function (el,bind) {
+            el.style.color = 'red';
+		    console.log('unbind');
+        }
+    });
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'helloWorld',
+	        isOk: false
+        },
+    });
+</script>
+
+</body>
+</html>

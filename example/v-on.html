@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<h1>v-on</h1>
+<hr>
+<div id="app">
+	<p>{{fenshu}}</p>
+	<input type="text" v-model="value" @keyup.enter="enter">
+	<button @click="jiafen">加分</button>
+	<button @click="jianfen">减分</button>
+</div>
+
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            fenshu: 0,
+            value: '',
+            massage: '已登录',
+            isLogin: false
+        },
+        methods: {
+            jiafen: function () {
+                this.fenshu++;
+            },
+            jianfen: function () {
+                this.fenshu--;
+            },
+            enter: function () {
+                this.fenshu = this.fenshu + parseInt(this.value);
+            }
+        }
+    })
+</script>
+</body>
+</html>
