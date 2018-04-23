@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<h1>Vue.component</h1>
+<hr>
+<div id="app">
+	<xin></xin>
+	<panda from-here="sichuan"></panda>
+</div>
+
+<div id="app2">
+	<xin></xin>
+</div>
+<script type="text/javascript">
+    Vue.component('xin',{
+        template: `<h2>我是全局組件</h2>`
+    });
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            count: 0
+        },
+        components:{
+            'panda':{
+                template:`<div style="color:red">Panda來自{{ fromHere }}</div>`,
+	            props: ['fromHere']
+            }
+        }
+    });
+
+    var ppa = new Vue({
+        el: '#app2',
+    });
+
+</script>
+
+</body>
+</html>

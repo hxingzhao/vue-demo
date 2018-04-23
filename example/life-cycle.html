@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<h1>Vue生命周期</h1>
+<hr>
+<div id="app">
+	<p>{{count}}</p>
+	<button @click="add()">add</button>
+	<button onclick="app.$destroy()">unbind</button>
+</div>
+<script type="text/javascript">
+    var outData = {
+        count: 0,
+    };
+
+    var app = new Vue({
+        el: '#app',
+        data: outData,
+        methods: {
+            add: function () {
+                // this.count++;
+                // this.items[1] = 'dd';
+                // Vue.set(app.items, 1, 'dd');
+                app.count++;
+            }
+        },
+        beforeCreate: function () {
+            console.log('beforeCreate 初始化之后');
+        },
+        created: function () {
+			console.log('created');
+        },
+	    beforeMount:function () {
+		    console.log('beforeMount');
+        },
+	    mounted: function () {
+		    console.log('mounted');
+        },
+	    beforeUpdate: function () {
+		    console.log('beforeUpdate');
+        },
+	    updated: function () {
+		    console.log('updated');
+        },
+        activated:function(){
+            console.log('7-activated');
+        },
+        deactivated:function(){
+            console.log('8-deactivated');
+        },
+        beforeDestroy:function(){
+            console.log('9-beforeDestroy 销毁之前');
+        },
+        destroyed:function(){
+            console.log('10-destroyed 销毁之后')
+        }
+    });
+
+
+</script>
+
+</body>
+</html>

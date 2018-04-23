@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script type="text/javascript" src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<h1>template</h1>
+<hr>
+<p>sss</p>
+<div id="app">
+
+</div>
+<p>ssd</p>
+<template id="add2">
+	<h2>template模板</h2>
+</template>
+<script type="x-template" id="add3">
+	<h2>sasdsa</h2>
+</script>
+<script type="text/javascript">
+     var app = new Vue({
+	     el: '#app',
+	     data: {
+	         count: 0
+	     },
+	     template: '#add3'
+     })
+</script>
+
+</body>
+</html>
